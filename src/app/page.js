@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="px-24">
+    <main className="px-36">
     <Navbar/>
-    <section className="flex py-20 space-between">
+    <section className="flex basis-full pt-20 pb-4 h-full space-between">
     <Gallery/>
     <Info/>
     </section>
