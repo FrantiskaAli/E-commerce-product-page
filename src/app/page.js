@@ -1,59 +1,65 @@
 'use client'
 import Navbar from "./components/navbar";
 import Gallery from "./components/gallery";
-import Info from "./components/infrormation";
+import Info from "./components/information";
 import { useState } from 'react';
 import Cart from "./components/cart";
 import GalleryActive from "./components/galleryActive";
 
 export default function Home() {
-  const [cart, setCart] = useState(0)
-  const plus = () => {
-    const current = cart
-    setCart(current + 1)
+
+  const [galleryDisplay, setGalleryDisplay] = useState({ //this is the state of the pop up gallery and initial picture
+    open: false, 
+    display: 1 
+  })
+
+  const [cart, setCart] = useState({//this sets all the information I need for correct display and count in the cart element
+    count: 0,
+    display: false,
+    info: 0,
+    position:0
+  })
+
+
+  const plus = () => {//function to add items
+    const current = cart.count
+    setCart({...cart, count: current + 1})
     console.log("function executed")
   }
 
-  const minus = () => {
-    const current = cart
+  const minus = () => { //function to subtract items
+    const current = cart.count
     if (current > 0)
-      setCart(current - 1)
+    setCart({...cart, count: current - 1})
   }
-  const [cartDisplay, setCartDisplay] = useState(false)
-  const [galleryDisplay, setGalleryDisplay] = useState({ open: false, display: 1 })
-  const [cartInfo, setCartInfo] = useState(0)
-
-  const [position, setPosition] = useState(0)
-  let fullCart = false
-  const showCart = (e) => {
-    setPosition(e.target.offsetHeight + 10)
-    cartDisplay ? setCartDisplay(false) : setCartDisplay(true)
-    cartInfo > 0 ? fullCart = true : fullCart = false
+ 
+  const showCart = (e) => { //function to display cart element and position it under cart's icon
+   cart.display ? setCart({...cart, display: false,position: e.target.offsetHeight + 10}) : setCart({...cart, display: true,position: e.target.offsetHeight + 10})
   }
 
-
-  const onSubmit = () => {
-    setCartInfo(cart);
-    setCart(0)
-
-    //   setCart(0)
+  const onSubmit = () => { //function to add counted items into the cart
+    const current = cart.count + cart.info;
+    setCart( {...cart,count:0, info:current });
   }
-  const openGal = (number) => {
+
+  const openGal = (number) => {//function to open gallery view
     setGalleryDisplay({ open: true, display: number })
   }
-
+ const closeGal = (number)=>{
+  setGalleryDisplay({...galleryDisplay, open: false, display: number})
+ }
 
   return (
     <main className={galleryDisplay.open ? "w-screen h-screen overflow-hidden px-36" : "z-10 px-36"}>
       <Navbar cartShow={showCart} />
-      {cartDisplay && <Cart position={position} cartInfo={cartInfo} />}
+      {cart.display && <Cart position={cart.position} cartInfo={cart.info} />}
 
 
 
       <section className="flex basis-full pt-20 pb-4 h-full space-between">
-        {galleryDisplay.open && <GalleryActive close={() => setGalleryDisplay({ open: false, display: 1 })} begin={galleryDisplay.display} />}
-        <Gallery openGal={openGal} />
-        <Info onPlus={() => plus()} onMinus={() => minus()} cart={cart} addToCart={() => onSubmit()} />
+        {galleryDisplay.open && <GalleryActive close={closeGal} begin={galleryDisplay.display} />}
+        <Gallery openGal={openGal} lastSeen={galleryDisplay.display}/>
+        <Info onPlus={() => plus()} onMinus={() => minus()} cart={cart.count} addToCart={() => onSubmit()} />
       </section>
 
     </main>

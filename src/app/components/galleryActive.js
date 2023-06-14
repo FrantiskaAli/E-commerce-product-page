@@ -24,7 +24,7 @@ const handleClick = (number) => {
 
     return (
         <section className="w-screen h-screen py-16 px-80 bg-gray-500/[.7] justify-center content-center flex flex-col z-20 absolute top-0 left-0">
-            <span onClick={close} className="float-right">
+            <span onClick={()=>close(navigate)} className="float-right">
             <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg"  className="float-right"><path  d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="#69707D" fillRule="evenodd"/></svg>
             </span>
             <article className="z-50 w-full h-full flex p-1/4 justify-center content-center">

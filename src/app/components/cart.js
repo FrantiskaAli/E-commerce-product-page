@@ -1,10 +1,14 @@
 'use client'
 import Image from "next/image";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 export default function Cart({ position, cartInfo }) {
 
-    const [cart, setCart] = useState(cartInfo)
+    const [cart, setCart] = useState(null)
+useEffect(()=>{
+    setCart(cartInfo)
+},[cartInfo])
+
 
     const remove = () => {
         setCart(prevCart => prevCart - 1)
@@ -36,7 +40,6 @@ export default function Cart({ position, cartInfo }) {
     if (cart > 0) {
         return fullCart
     } else return emptyCart
-
 
 }
 
