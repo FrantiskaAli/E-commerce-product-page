@@ -21,7 +21,7 @@ export default function Home() {
       setCart(current - 1)
   }
   const [cartDisplay, setCartDisplay] = useState(false)
-  const [galleryDisplay, setGalleryDisplay] = useState(true)
+  const [galleryDisplay, setGalleryDisplay] = useState({open:true, display:1})
  
 
   const [position, setPosition] = useState(0)
@@ -46,16 +46,18 @@ export default function Home() {
    cart > 0 ? setCartInfo(myCart) : setCartInfo("Your cart is empty")
    //   setCart(0)
   }
-
+const openGal = (number)=>{
+  setGalleryDisplay({open: true, display:number})
+}
 
 
   return (
-    <main className="px-36">
+    <main className= {galleryDisplay.open ? "w-screen h-screen overflow-hidden px-36": "z-10 px-36"}>
       <Navbar cartShow={showCart} />
       {cartDisplay && <Cart position={position} cartInfo={cartInfo} />}
       <section className="flex basis-full pt-20 pb-4 h-full space-between">
-        {galleryDisplay && <GalleryActive/>}
-        <Gallery />
+        {galleryDisplay.open && <GalleryActive close={()=>setGalleryDisplay({open: false ,display:1})} begin={galleryDisplay.display}/>}
+        <Gallery openGal={openGal} />
         <Info onPlus={() => plus()} onMinus={() => minus()} cart={cart} addToCart={()=>onSubmit()} />
       </section>
 

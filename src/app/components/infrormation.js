@@ -1,7 +1,7 @@
 'use Client'
 export default function Info({onPlus, onMinus,cart,addToCart }) {
     return (
-        <section className="w-2/4 flex flex-col justify-center px-14 py-12">
+        <section className="w-2/4 flex flex-col justify-center px-14 py-12 z-10">
             <article >
                 <h1 className="text-md uppercase font-bold text-yellow-500 mb-6 ">Sneaker Company</h1>
 
