@@ -18,6 +18,10 @@ const next = ()=>{
     }else setNavigate(1)
  }
 
+const handleClick = (number) => {
+    setNavigate(number)
+}
+
     return (
         <section className="w-screen h-screen py-16 px-80 bg-gray-500/[.7] justify-center content-center flex flex-col z-20 absolute top-0 left-0">
             <span onClick={close} className="float-right">
@@ -35,10 +39,10 @@ const next = ()=>{
                 </span>
             </article>
             <article className="flex justify-evenly mt-4">
-                <Image src="/image-product-1-thumbnail.jpg" width={80} height={80} alt="Product Image" className="rounded-lg hover:brightness-125 cursor-pointer hover:opacity-50" />
-                <Image src="/image-product-2-thumbnail.jpg" width={80} height={80} alt="Product Image" className="rounded-lg hover:brightness-125 cursor-pointer hover:opacity-50" />
-                <Image src="/image-product-3-thumbnail.jpg" width={80} height={80} alt="Product Image" className="rounded-lg hover:brightness-125 cursor-pointer hover:opacity-50" />
-                <Image src="/image-product-4-thumbnail.jpg" width={80} height={80} alt="Product Image" className="rounded-lg hover:brightness-125 cursor-pointer hover:opacity-50" />
+                <Image onClick={()=>handleClick(1)} src="/image-product-1-thumbnail.jpg" width={80} height={80} alt="Product Image" className="rounded-lg hover:brightness-125 cursor-pointer hover:opacity-50" />
+                <Image onClick={()=>handleClick(2)} src="/image-product-2-thumbnail.jpg" width={80} height={80} alt="Product Image" className="rounded-lg hover:brightness-125 cursor-pointer hover:opacity-50" />
+                <Image onClick={()=>handleClick(3)} src="/image-product-3-thumbnail.jpg" width={80} height={80} alt="Product Image" className="rounded-lg hover:brightness-125 cursor-pointer hover:opacity-50" />
+                <Image onClick={()=>handleClick(4)} src="/image-product-4-thumbnail.jpg" width={80} height={80} alt="Product Image" className="rounded-lg hover:brightness-125 cursor-pointer hover:opacity-50" />
 
             </article>
         </section>
