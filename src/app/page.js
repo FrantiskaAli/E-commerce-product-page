@@ -49,11 +49,17 @@ export default function Home() {
     setGalleryDisplay({ ...galleryDisplay, open: false, display: number })
   }
 
+  const remove = () => {
+    const current = cart.info
+    setCart({...cart, info:current-1})
+}
+
+
   return (
-    <main className={galleryDisplay.open ? "w-screen h-screen overflow-hidden px-36" : "w-screen h-screen px-44"}>
-      <Navbar cartShow={showCart} cartActive={cart.display} />
-      {cart.display && <Cart position={cart.position} cartInfo={cart.info} />}
-      <section className="flex basis-full pt-20 pb-4 h-full space-between">
+    <main className={galleryDisplay.open ? "w-full m-0 p-o h-screen overflow-hidden xl:px-36 lg:px-18 md:px-10 sm-px" : "w-full p-0 m-0 h-screen xl:px-44 lg:px-18 md:px-10"}>
+      <Navbar cartShow={showCart} cartActive={cart.display} dot={cart.info} />
+      {cart.display && <Cart position={cart.position} cartInfo={cart.info} remove={remove} />}
+      <section className="flex-col basis-full md:pt-16 pb-4 h-full md:width-full sm:width-screen space-between p-0 md:flex md:flex-row">
         {galleryDisplay.open && <GalleryActive close={closeGal} begin={galleryDisplay.display} />}
         <Gallery openGal={openGal} lastSeen={galleryDisplay.display} />
         <Info onPlus={() => plus()} onMinus={() => minus()} cart={cart.count} addToCart={() => onSubmit()} />
