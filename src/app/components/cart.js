@@ -12,7 +12,7 @@ useEffect(()=>{
 
     
     const emptyCart = (
-        <section className="h-1/4 w-11/12 md:w-1/4 md:top-16 mt-12 md:right-20 left-4 top-20 text-center shadow-lg absolute bg-white rounded-2xl">
+        <section className="h-1/4 w-11/12 md:w-1/4 md:top-20 mt-12 md:right-2 z-20 right-6 top-16 text-center shadow-2xl absolute bg-white rounded-2xl">
             <h3 className="text-left font-bold p-4">Cart</h3>
             <article className="border-t-2 h-2/3 border-gray-200 flex items-center justify-center font-bold text-gray-400">
            <p>Your cart is empty</p> 
@@ -21,7 +21,7 @@ useEffect(()=>{
     )
 
     const fullCart = (
-        <section  className="h-fit md:w-1/4 md:top-22 md:right-20 left-2 top-24 text-center p-4 shadow-lg absolute bg-white rounded-xl">
+        <section  className="h-fit w-11/12 md:w-1/4 md:top-20 mt-12 md:right-2  p-2 right-6 top-16 text-center shadow-2xl absolute bg-white rounded-2xl">
             <h3 className="text-left font-bold p-4">Cart</h3>
             <hr></hr>
             <section>

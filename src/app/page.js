@@ -56,7 +56,7 @@ export default function Home() {
 
 
   return (
-    <main className={galleryDisplay.open ? "w-full m-0 p-o h-screen overflow-hidden xl:px-36 lg:px-18 md:px-10 sm-px" : "w-full p-0 m-0 h-screen xl:px-44 lg:px-18 md:px-10"}>
+    <main className={galleryDisplay.open ? "w-full m-0 p-o h-screen overflow-hidden xl:px-36 lg:px-18 md:px-10 px-0" : "w-full p-0 m-0 h-screen xl:px-44 lg:px-18 md:px-10"}>
       <Navbar cartShow={showCart} cartActive={cart.display} dot={cart.info} />
       {cart.display && <Cart position={cart.position} cartInfo={cart.info} remove={remove} />}
       <section className="flex-col basis-full md:pt-16 pb-4 h-full md:width-full sm:width-screen space-between p-0 md:flex md:flex-row">
