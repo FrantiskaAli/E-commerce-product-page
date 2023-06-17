@@ -17,7 +17,6 @@ export default function Home() {
     count: 0,
     display: false,
     info: 0,
-    position: 0
   })
 
 
@@ -41,7 +40,7 @@ export default function Home() {
 
   const showCart = (e) => { //function to display cart element and position it under cart's icon
     goToTop()
-    cart.display ? setCart({ ...cart, display: false, position: e.target.parentElement.offsetHeight - 10}) : setCart({ ...cart, display: true, position: e.target.parentElement.offsetHeight + 10 });
+    cart.display ? setCart({ ...cart, display: false}) : setCart({ ...cart, display: true,});
    
   }
 

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState,useEffect } from "react";
 
-export default function Cart({ position, cartInfo, remove }) {
+export default function Cart({ cartInfo, remove }) {
 
     const [cart, setCart] = useState(null)
 useEffect(()=>{

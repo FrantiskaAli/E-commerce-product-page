@@ -14,7 +14,11 @@ export default function Navbar({ cartShow, cartActive, dot }) {
     })
 
     const toggleNav = () => {
-        nav.open ? setNav({ ...nav, open: false }) : setNav({ ...nav, open: true })
+        nav.open ? setNav({ ...nav, open: false }) : setNav({ ...nav, open: true });
+        if (cartActive) {
+            cartShow()
+          }
+
     }
 
     useEffect(() => {
@@ -57,7 +61,7 @@ export default function Navbar({ cartShow, cartActive, dot }) {
 
 
             {//mobile navbar
-                nav.open ? <section className="h-screen w-screen absolute top-0 z-30 left-0 overflow-y-hidden bg-gray-500/[.7] ">
+                nav.open ? <section className="h-screen w-screen absolute top-0 z-40 left-0 overflow-y-hidden bg-gray-500/[.7] ">
                     <article className="h-full w-2/4 bg-white p-10 self-end flex-wrap-reverse">
                         <section classNAme="w-8 h-8">
                             <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" onClick={() => (toggleNav())} className="hover:cursor-pointer"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="gray" fillRule="evenodd" /></svg>
