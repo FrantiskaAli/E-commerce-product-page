@@ -14,6 +14,11 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      boxShadow:{
+        glowing: '5px 2px 14px 7px rgba(255, 175, 65, 0.7)',
+        //-webkit-box-shadow: 5px 2px 14px 7px rgba(255,175,65,0.73); 
+
+      }
     },
   },
   plugins: [],
