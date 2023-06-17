@@ -44,10 +44,10 @@ export default function Gallery({openGal, lastSeen}) {
 
         }
             <article className={!small ? "flex flex-wrap justify-between w-full mt-4" : "hidden w-0"}>
-                <Image onClick={()=>openGal(1)} src="/image-product-1-thumbnail.jpg" width={80} height={80} alt="Product Image" className={lastSeen === 1 ? "rounded-lg cursor-pointer ring-4 ring-yellow-600 hover:opacity-50 mt-4":"mt-4 rounded-lg cursor-pointer hover:opacity-50"} />
-                <Image onClick={()=>openGal(2)} src="/image-product-2-thumbnail.jpg" width={80} height={80} alt="Product Image" className={lastSeen === 2 ? "rounded-lg cursor-pointer ring-4 ring-yellow-600 hover:opacity-50 mt-4":" mt-4 rounded-lg cursor-pointer hover:opacity-50"}/>
-                <Image onClick={()=>openGal(3)} src="/image-product-3-thumbnail.jpg" width={80} height={80} alt="Product Image" className={lastSeen === 3 ? "rounded-lg cursor-pointer ring-4 ring-yellow-600 hover:opacity-50 mt-4":"mt-4 rounded-lg cursor-pointer hover:opacity-50"} />
-                <Image onClick={()=>openGal(4)} src="/image-product-4-thumbnail.jpg" width={80} height={80} alt="Product Image" className={lastSeen === 4 ? "rounded-lg cursor-pointer ring-4 ring-yellow-600 hover:opacity-50 mt-4":"mt-4 rounded-lg cursor-pointer hover:opacity-50"}/>
+                <Image onClick={()=>openGal(1)} src="/image-product-1-thumbnail.jpg" width={80} height={80} alt="Product Image" className={lastSeen === 1 ? "rounded-lg cursor-pointer ring-4 ring-orange-600 hover:opacity-50 mt-4":"mt-4 rounded-lg cursor-pointer hover:opacity-50"} />
+                <Image onClick={()=>openGal(2)} src="/image-product-2-thumbnail.jpg" width={80} height={80} alt="Product Image" className={lastSeen === 2 ? "rounded-lg cursor-pointer ring-4 ring-orange-600 hover:opacity-50 mt-4":" mt-4 rounded-lg cursor-pointer hover:opacity-50"}/>
+                <Image onClick={()=>openGal(3)} src="/image-product-3-thumbnail.jpg" width={80} height={80} alt="Product Image" className={lastSeen === 3 ? "rounded-lg cursor-pointer ring-4 ring-orange-600 hover:opacity-50 mt-4":"mt-4 rounded-lg cursor-pointer hover:opacity-50"} />
+                <Image onClick={()=>openGal(4)} src="/image-product-4-thumbnail.jpg" width={80} height={80} alt="Product Image" className={lastSeen === 4 ? "rounded-lg cursor-pointer ring-4 ring-orange-600 hover:opacity-50 mt-4":"mt-4 rounded-lg cursor-pointer hover:opacity-50"}/>
 
             </article>
         </section>
